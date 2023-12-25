@@ -1,43 +1,42 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useState } from "react";
 import dataJSON from "./allowance_data.json";
 const TestFn = () => {
   const data = [];
-  const mockdata = useMemo(
-    () => dataJSON.allowances.map((el) => el.allowanceItems.flat(1)),
-    []
-  );
+
   dataJSON.allowances.map((item, i) => {
-    //item.allowanceItems[i]["allowance_" + i] = 0;
     const obj = {
       itemDescription: item.allowanceItems[i].itemDesc,
-      cic: "",
+      cic: i + 1.3,
       primaryUpc: item.allowanceItems[i].primaryUpc,
       upcs: item.allowanceItems[i].itemUpcs.length,
       pack: item.allowanceItems[i].packWhse,
       size: item.allowanceItems[i].size,
       allowances: item.allowanceItems,
     };
-    obj.allowances.map(
-      (allowance, i) => (allowance["allowanceHeaderAmount"] = 0)
-    );
+
     data.push(obj);
   });
   const [tableData, setTableData] = useState(data);
-  //   console.log(data);
 
-  useEffect(() => {
-    console.log(tableData, "mapped");
-  }, []);
   const handleColumnChange = (val, i) => {
     console.log(val, i);
     const data = [...tableData];
-    // data.map((col) => col.allowances.map((d, i) => (d.allowanceAmount = val)));
-    data.map((col) => (col.allowances[i].allowanceAmount = val));
+
+    data.map((col) => {
+      col.allowances[i].allowanceAmount = val;
+    });
+    data[0].allowances[i].allowanceHeaderAmount = val;
+    console.log(data, "modified");
     setTableData(data);
   };
   const handleTableChange = (val) => {
     const data = [...tableData];
-    data.map((col) => col.allowances.map((d, i) => (d.allowanceAmount = val)));
+    data.map((col) =>
+      col.allowances.map((d, i) => {
+        d.allowanceAmount = val;
+        d.allowanceHeaderAmount = val;
+      })
+    );
     setTableData(data);
   };
   const handleInputChange = (val, i, rowId) => {
@@ -72,6 +71,7 @@ const TestFn = () => {
                   Allowance Amount
                   <div className="d-flex master-cost">
                     <input
+                      value={items.allowanceHeaderAmount || ""}
                       onChange={(e) => handleColumnChange(e.target.value, i)}
                       className="form-control"
                       type="text"

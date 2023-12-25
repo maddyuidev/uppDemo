@@ -44,6 +44,7 @@
           "unitListCost": 3.93,
           "unitCostAllow": 3.93,
           "allowanceAmount": 0,
+          "allowanceHeaderAmount": 0,
           "allowUomType": "EA",
           "allowUomTypes": ["EA", "AE"],
           "newUnitCostAllow": 3.93
@@ -62,6 +63,7 @@
           "unitListCost": 3.93,
           "unitCostAllow": 3.93,
           "allowanceAmount": 0,
+          "allowanceHeaderAmount": 0,
           "allowUomType": "EA",
           "allowUomTypes": ["EA"],
           "newUnitCostAllow": 3.93
@@ -80,6 +82,7 @@
           "unitListCost": 3.93,
           "unitCostAllow": 3.93,
           "allowanceAmount": 0,
+          "allowanceHeaderAmount": 0,
           "allowUomType": "EA",
           "allowUomTypes": ["EA"],
           "newUnitCostAllow": 3.93
@@ -98,6 +101,7 @@
           "unitListCost": 3.93,
           "unitCostAllow": 3.93,
           "allowanceAmount": 0,
+          "allowanceHeaderAmount": 0,
           "allowUomType": "EA",
           "allowUomTypes": ["EA"],
           "newUnitCostAllow": 3.93
@@ -144,6 +148,7 @@
           "unitListCost": 3.93,
           "unitCostAllow": 3.93,
           "allowanceAmount": 0,
+          "allowanceHeaderAmount": 0,
           "allowUomType": "EA",
           "allowUomTypes": ["EA"],
           "newUnitCostAllow": 3.93
@@ -162,6 +167,7 @@
           "unitListCost": 3.93,
           "unitCostAllow": 3.93,
           "allowanceAmount": 0,
+          "allowanceHeaderAmount": 0,
           "allowUomType": "EA",
           "allowUomTypes": ["EA"],
           "newUnitCostAllow": 3.93
@@ -180,6 +186,7 @@
           "unitListCost": 3.93,
           "unitCostAllow": 3.93,
           "allowanceAmount": 0,
+          "allowanceHeaderAmount": 0,
           "allowUomType": "EA",
           "allowUomTypes": ["EA"],
           "newUnitCostAllow": 3.93
@@ -198,6 +205,7 @@
           "unitListCost": 3.93,
           "unitCostAllow": 3.93,
           "allowanceAmount": 0,
+          "allowanceHeaderAmount": 0,
           "allowUomType": "EA",
           "allowUomTypes": ["EA"],
           "newUnitCostAllow": 3.93
