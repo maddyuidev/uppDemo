@@ -3,15 +3,10 @@ import { FilterFn } from "../utilities/filterFn";
 import { useRef } from "react";
 
 const columnHelper = createColumnHelper();
-const handleChange = (rows, id, filterValue) => {
+const handleChange = (e, row) => {
   // debugger;
-  // console.log(e, row);
-  // row.column.accessorFn((r) => console.log(r, "inner"));
-  return rows.filter((row) => {
-    const rowValue = row.values[id];
-    console.log(rowValue);
-    // return rowValue >= filterValue;
-  });
+  console.log(e, row);
+  row.column.accessorFn((r) => console.log(r, "inner"));
 };
 
 export const columnDef = [
