@@ -3,6 +3,7 @@ import dataJSON from "./allowance_data.json";
 const TestFn = () => {
   const data = [];
   const [updateAll, setUpdateAll] = useState(0);
+  const [savedData, setSavedData] = useState({});
 
   dataJSON.allowances.map((item, i) => {
     const obj = {
@@ -50,7 +51,12 @@ const TestFn = () => {
     setTableData(data);
   };
   const handleSave = () => {
-    console.log({ ...dataJSON, allowances: tableData });
+    // setSavedData(
+    //   JSON.stringify({ ...dataJSON, allowances: tableData }),
+    //   null,
+    //   2
+    // );
+    setSavedData({ ...dataJSON, allowances: tableData });
   };
   return (
     <>
@@ -142,6 +148,7 @@ const TestFn = () => {
           ))}
         </tbody>
       </table>
+      <pre>{JSON.stringify(savedData, null, 2)}</pre>
     </>
   );
 };
