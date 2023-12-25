@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import dataJSON from "./allowance_data.json";
 const TestFn = () => {
   const data = [];
+  const [updateAll, setUpdateAll] = useState(0);
 
   dataJSON.allowances.map((item, i) => {
     const obj = {
@@ -17,6 +18,7 @@ const TestFn = () => {
     data.push(obj);
   });
   const [tableData, setTableData] = useState(data);
+  //   console.log({ tableData });
 
   const handleColumnChange = (val, i) => {
     console.log(val, i);
@@ -30,11 +32,14 @@ const TestFn = () => {
     setTableData(data);
   };
   const handleTableChange = (val) => {
+    setUpdateAll(val);
+  };
+  const handleUpdateAll = () => {
     const data = [...tableData];
     data.map((col) =>
       col.allowances.map((d, i) => {
-        d.allowanceAmount = val;
-        d.allowanceHeaderAmount = val;
+        d.allowanceAmount = updateAll;
+        d.allowanceHeaderAmount = updateAll;
       })
     );
     setTableData(data);
@@ -44,14 +49,27 @@ const TestFn = () => {
     data[rowId].allowances[i].allowanceAmount = val;
     setTableData(data);
   };
+  const handleSave = () => {
+    console.log({ ...dataJSON, allowances: tableData });
+  };
   return (
     <>
-      <div>
+      <div className="d-flex justify-content-evenly col-5">
+        <label className="form-label">Update All</label>
         <input
           onChange={(e) => handleTableChange(e.target.value)}
-          className="form-control"
+          className="form-control  ms-2"
           type="text"
         />
+        <button
+          className="btn btn-sm btn-primary  ms-2"
+          onClick={handleUpdateAll}
+        >
+          Update All
+        </button>
+        <button className="btn btn-sm btn-primary  ms-2" onClick={handleSave}>
+          Save All
+        </button>
       </div>
       <table className="table">
         <thead>
